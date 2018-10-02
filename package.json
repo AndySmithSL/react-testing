@@ -1,0 +1,23 @@
+{
+  "name": "react-testing",
+  "version": "1.0.0",
+  "description": "Examples of unit testing react components with Jest and Enzyme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndySmithSL/react-testing.git"
+  },
+  "author": "Andy Smith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndySmithSL/react-testing/issues"
+  },
+  "homepage": "https://github.com/AndySmithSL/react-testing#readme",
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  }
+}
