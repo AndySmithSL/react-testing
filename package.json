@@ -4,7 +4,7 @@
   "description": "Examples of unit testing react components with Jest and Enzyme",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.6.0",
     "jest": "^23.6.0",
     "react-test-renderer": "^16.5.2"
   }
