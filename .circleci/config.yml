@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:7.10
+      - image: circleci/node:10.15.0-alpine
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -19,30 +19,4 @@ jobs:
       - run: echo "Starting Build"
       - run: npm install
       - run: echo "Complete Build"
-  test:
-    docker: 
-      - image: circleci/node:7.10
-    working_directory: ~/repo
-    steps:
-      - run: echo "Checkout code"
-      - checkout
-      - run: echo "Restore cache"
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-      - run: echo "Run tests"
-      - run: npm test
-      - run: echo "Save cache"
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      - run: echo "Completed Tests"
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
-      - test
-      
+  
