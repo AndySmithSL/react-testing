@@ -18,5 +18,7 @@ jobs:
       - checkout
       - run: echo "Starting Build"
       - run: npm install
+      # - run: npm run build
+      - run: npm test
       - run: echo "Complete Build"
   
