@@ -13,22 +13,36 @@ jobs:
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
-
-    working_directory: ~/repo
-
     steps:
+      - run: echo "Checkout code"
       - checkout
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
       - run: echo "Starting Build"
       - run: npm install
+      - run: echo "Complete Build"
+  test:
+    docker: 
+      - image: circleci/node:7.10
+    working_directory: ~/repo
+    steps:
+      - run: echo "Checkout code"
+      - checkout
+      - run: echo "Restore cache"
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run: echo "Run tests"
+      - run: npm test
+      - run: echo "Save cache"
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: npm test
-      - run: echo "Complete Build"
+      - run: echo "Completed Tests"
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
+      
