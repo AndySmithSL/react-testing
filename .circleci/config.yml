@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+  build_dev:
     docker:
       # specify the version you desire here
       - image: circleci/node:10.15.0-jessie
@@ -14,11 +14,11 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
     steps:
-      - run: echo "Checkout code"
+      - run: echo "Checkout code dev"
       - checkout
-      - run: echo "Starting Build"
+      - run: echo "Starting Build dev"
       - run: npm install
       # - run: npm run build
       # - run: npm test
-      - run: echo "Complete Build"
+      - run: echo "Complete Build dev"
   
